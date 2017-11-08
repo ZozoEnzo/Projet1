@@ -1,7 +1,7 @@
 <?php
-    class Secteur {
+    class Region {
         private $code;
-        private $libelle;
+        private $nom;
 
         public function getCode()
         {
@@ -11,13 +11,13 @@
         {
             $this->code=$value;
         }
-        public function getlibelle()
+        public function getnom()
         {
-            return $this->libelle;
+            return $this->nom;
         }
-        public function setlibelle($value)
+        public function setnom($value)
         {
-            $this->libelle=$value;
+            $this->nom=$value;
         }
     }
 ?>
