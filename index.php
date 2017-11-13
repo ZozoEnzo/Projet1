@@ -15,8 +15,16 @@
                 include("vue/menu.inc.php");
             ?>
         </div>
-        <div name="droite">
-            <div name="bas">
+        <div id="contenu" name="droite">
+            <?php
+                switch($controleur) //suivant le contrôleur
+                {
+                    case 'statistique':
+                        include("vues/v_accueil.php");  //page de statistique
+                        break;
+                }
+            ?>
+            <div id="pied" name="bas">
 
             </div>
         </div>
