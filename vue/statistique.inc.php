@@ -1,11 +1,11 @@
 <?php
     if(!isset($_GET["page"]))
-        $action="none";
+        $page="none";
     else
-        $action=$_GET["page"];
+        $page=$_GET["page"];
 
     //---TITRE---
-    switch($action) //suivant l'action à réaliser, on affiche un titre différant
+    switch($page) //suivant l'action à réaliser, on affiche un titre différant
     {
         case 'none':
             ?> <h1 class="centre"> Gestion des statistiques </h1> <?php
@@ -23,7 +23,7 @@
 
     //---LIENS-MENU---
     ?> <div class="centre"> <?php
-    switch($action) //suivant l'action à réaliser, on affiche pas tous les liens
+    switch($page) //suivant l'action à réaliser, on affiche pas tous les liens
     {
         case 'none': //si l'utilisateur n'a pas encore choisi d'action particulière, on affiche tout
             ?>
@@ -65,4 +65,21 @@
     ?> </div> <?php
 
     //---INFORMATION---
+    ?> <div class="centre"> <?php
+    switch($page) //suivant l'action à réaliser, on appelle la vue correspondante
+    {
+        case 'none':
+            ?> <p class="corpsTexte">Veuillez selectionner la manière voulue pour visualiser les statistiques</p> <?php
+            break;
+        case 'statRegion':
+            //include("vue/");
+            break;
+        case 'delegues':
+
+            break;
+        case 'statSecteur':
+
+            break;
+    }
+    ?> </div> <?php
 ?>
