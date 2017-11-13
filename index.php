@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="entete" name="haut">
-            <h1><img src="logo.jpg" id="logoGSB"/>Gestion des visites</h1>
+            <h1><img src="image/logo.jpg" id="logoGSB"/>Gestion des visites</h1>
         </div>
         <div id="menuGauche" name="gauche">
             <?php
