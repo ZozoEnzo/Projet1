@@ -7,27 +7,18 @@
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
     <body>
-        <div name="haut">
-            <h1><img src="logo.jpg" width="100" height="60"/>Gestion des visites</h1>
+        <div id="entete" name="haut">
+            <h1><img src="logo.jpg" id="logoGSB"/>Gestion des visites</h1>
         </div>
-        <div name="gauche">
-            <h2>Outils</h2>
-            <ul>
-                <li>Comptes-Rendus</li>
-                <ul>
-                    <li><a href="formRAPPORT_VISITE.htm" >Nouveaux</a></li>
-                    <li>Consulter</li>
-                </ul>
-                <li>Consulter</li>
-                <ul>
-                    <li><a href="formMEDICAMENT.htm" >Médicaments</a></li>
-                    <li><a href="formPRATICIEN.htm" >Praticiens</a></li>
-                    <li><a href="formVISITEUR.htm" >Autres visiteurs</a></li>
-                </ul>
-            </ul>
+        <div id="menuGauche" name="gauche">
+            <?php
+                include("vue/menu.inc.php");
+            ?>
         </div>
         <div name="droite">
-            <div name="bas"></div>
+            <div name="bas">
+
+            </div>
         </div>
     </body>
 </html>
