@@ -5,5 +5,4 @@
 		$lesRegions = Region::allRegion();
 		include("vue/v_regions.php");
 	}
-
 ?>
