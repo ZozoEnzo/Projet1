@@ -17,10 +17,10 @@
         </div>
         <div id="contenu" name="droite">
             <?php
-                switch($controleur) //suivant le contrôleur
+                switch($_GET["controleur"]) //suivant le contrôleur
                 {
                     case 'statistique':
-                        include("vues/v_accueil.php");  //page de statistique
+                        include("controleur/statistique.php");  //page de statistique
                         break;
                 }
             ?>
