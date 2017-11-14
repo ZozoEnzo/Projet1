@@ -54,7 +54,7 @@
 
         public function getdateEmbauche() // VIS_DATEEMBAUCHE
         {
-            return this->dateEmbauche;
+            return $this->dateEmbauche;
         }
         public function setdateEmbauche($value)
         {
