@@ -3,9 +3,10 @@ $action = $_request['action'];
 switch($action)
 {
     case 'delegues':
+        echo "enzo borges";
         $lesDeleg=Visiteur::getDelegues();
-                            //inclure la vue visiteur
-                            break;
+        include ("vue/v_visiteur.inc.php");
+        break;
 
     default: echo "rien";
 }
