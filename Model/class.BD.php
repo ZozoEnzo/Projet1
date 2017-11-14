@@ -17,9 +17,9 @@
         //	pour toutes les méthodes de la classe
         private function __construct()
         {
-            MonPdo::$unPdo = new PDO(MonPdo::$serveur.';'.MonPdo::$bdd, MonPdo::$user, MonPdo::$mdp);
-            MonPdo::$unPdo->query("SET CHARACTER SET utf8");
-            MonPdo::$unPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            BD::$unPdo = new PDO(BD::$serveur.';'.BD::$bdd, BD::$user, BD::$mdp);
+            BD::$unPdo->query("SET CHARACTER SET utf8");
+            BD::$unPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         public function __destruct()
         {
@@ -34,7 +34,7 @@
         {
             if(self::$unPdo == null)
             {
-                self::$maBD = new MonPdo();
+                self::$maBD = new BD();
             }
             return self::$unPdo;
         }
