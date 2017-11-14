@@ -96,6 +96,7 @@ ul#menuList a:hover {
 }
 
 #entete h1 {
+  color: darkblue;
   margin : 1em;
   margin-left:6em;
   font-size : x-large;
