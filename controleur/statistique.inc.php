@@ -16,7 +16,6 @@
                 include("vue/v_visiteur.inc.php");
 				break;
             case 'secteur':
-				include("controleur/c_Secteur.php");
 				break;
         }
     }
