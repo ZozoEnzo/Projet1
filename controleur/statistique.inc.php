@@ -9,11 +9,11 @@
         {
             case 'region':
 				$lesRegions = Region::allRegion();
-                include("vue/v_regions.php");
+                include("vue/regions.inc.php");
 				break;
             case 'delegues':
 				$lesDeleg=Visiteur::getDelegues();
-                            //inclure la vue visiteur
+                include("vue/v_visiteur.inc.php");
 				break;
             case 'secteur':
 				include("controleur/c_Secteur.php");
