@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
     <body>
+       <meta charset="utf-8" />
         <div id="entete" name="haut">
             <img src="image/logo.jpg" id="logoGSB" class="logoValidW3c"/>
             <h1>Gestion des visites</h1>
