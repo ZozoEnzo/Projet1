@@ -23,7 +23,7 @@
         }
         public function __destruct()
         {
-            MonPdo::$unPdo = null;
+            BD::$unPdo = null;
         }
         /**
         *	Fonction statique qui cree l'unique instance de la classe
