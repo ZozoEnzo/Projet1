@@ -27,6 +27,12 @@
                         case 'statistiques':
                             include("controleur/statistique.inc.php");  //page de statistique
                             break;
+						case 'region':
+							include("controleur/c_region.php");
+							break;
+						case 'delegues':
+							include("controleur/c_Visiteur.php");
+							break;
                     }
                 }
             ?>
