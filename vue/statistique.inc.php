@@ -28,37 +28,37 @@
         case 'none': //si l'utilisateur n'a pas encore choisi d'action particulière, on affiche tout
             ?>
 
-                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistique par région</a>
+                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistiques par région</a>
                 &mdash;
                 &mdash;
-                <a href="index.php?controleur=statistique&action=delegues" >Afficher tout les délégués</a>
+                <a href="index.php?controleur=statistique&action=delegues" >Afficher tous les délégués</a>
                 &mdash;
                 &mdash;
-                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistique par secteur</a>
+                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistiques par secteur</a>
             <?php
             break;
         case 'statRegion': //si l'utilisateur veux les statistiques par région, on affiche tout sauf les statistique par région
             ?>
-                <a href="index.php?controleur=statistique&action=delegues" >Afficher tout les délégués</a>
+                <a href="index.php?controleur=statistique&action=delegues" >Afficher tous les délégués</a>
                 &mdash;
                 &mdash;
-                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistique par secteur</a>
+                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistiques par secteur</a>
             <?php
             break;
         case 'delegues': //si l'utilisateur veux les délégués, on affiche tout sauf les délégués
             ?>
-                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistique par région</a>
+                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistiques par région</a>
                 &mdash;
                 &mdash;
-                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistique par secteur</a>
+                <a href="index.php?controleur=statistique&action=statSecteur" >Afficher les statistiques par secteur</a>
             <?php
             break;
         case 'statSecteur': //si l'utilisateur veux les statistiques par secteur, on affiche tout sauf les statistique par secteur
             ?>
-                <a href="index.php?controleur=statistique&action=delegues" >Afficher tout les délégués</a>
+                <a href="index.php?controleur=statistique&action=delegues" >Afficher tous les délégués</a>
                 &mdash;
                 &mdash;
-                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistique par région</a>
+                <a href="index.php?controleur=statistique&action=statRegion" >Afficher les statistiques par région</a>
             <?php
             break;
     }
