@@ -3,6 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html id="page">
     <head>
+        <meta charset="utf-8" />
         <title>GSB project</title>
         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
