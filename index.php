@@ -8,6 +8,7 @@
     require_once("model/class.Region.inc.php");
     require_once("model/class.Secteur.inc.php");
     require_once("model/class.Visiteur.inc.php");
+    require_once("model/class.Travailler.inc.php");
 ?>
 <html id="page">
     <head>

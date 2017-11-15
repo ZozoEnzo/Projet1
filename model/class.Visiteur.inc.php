@@ -64,13 +64,13 @@
         {
             $sql="select * from visiteur v, travailler t where v.matriculeVisiteur = t.matriculeVisiteur and t.roleTravailler = 'Délégué'";
             $resultat=BD::getInstance()->query($sql);
-            $lesDeleg=$resultat->fetchAll (PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'travailler');
+            $lesDeleg=$resultat->fetchAll (PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Visiteur');
             return $lesDeleg;
         }
         public static function getSecteur($matricule)
         {
             $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=':matricule'";
-            $resultat=MonPdo::getInstance()->prepare($sql);
+            $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':matricule', $matricule);
             $resultat->execute();
             return $resultat;

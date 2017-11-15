@@ -6,13 +6,13 @@
                     <?php
                     foreach($lesDeleg as $Deleg) //parcours du tableau d'objets récupérés
                     {
-                        $matricule=$visiteur->getMatricule();
-                        $nom=$visiteur->getnom();
-                        $adresse=$visiteur->getadresse();
-                        $cp=$visiteur->getcp();
-                        $ville=$visiteur->getville();
-                        $dateEmbauche=$visiteur->getdateEmbauche();
-                        $secteur=$visiteur->getSecteur();?>
+                        $matricule=$Deleg->getMatricule();
+                        $nom=$Deleg->getnom();
+                        $adresse=$Deleg->getadresse();
+                        $cp=$Deleg->getcp();
+                        $ville=$Deleg->getville();
+                        $dateEmbauche=$Deleg->getdateEmbauche();
+                        //$secteur=$Deleg->getSecteur($matricule);?>
 
                     <tr>
                         <td width=5%><?php echo $matricule?></td>
@@ -21,7 +21,7 @@
                         <td width=10%><?php echo $cp?></td>
                         <td width=50%><?php echo $ville?></td>
                         <td width=15%><?php echo $dateEmbauche?></td>
-                        <td width=15%><?php echo $secteur?></td>
+                        <!--<td width=15%><?//php echo $secteur?></td>-->
                     </tr>
                     <?php
                     }
