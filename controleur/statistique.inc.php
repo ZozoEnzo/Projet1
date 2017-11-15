@@ -16,7 +16,7 @@
 				$lesDeleg=Visiteur::getDelegues();
                 include("vue/v_visiteur.inc.php");
 				break;
-            case 'secteur':
+            case 'statSecteur':
 				break;
         }
     }

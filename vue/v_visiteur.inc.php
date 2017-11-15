@@ -15,12 +15,12 @@
                         //$secteur=$Deleg->getSecteur($matricule);?>
 
                     <tr>
-                        <td width=5%><?php echo $matricule?></td>
-                        <td width=80%><?php echo $nom?></td>
-                        <td width=95%><?php echo $adresse?></td>
-                        <td width=10%><?php echo $cp?></td>
-                        <td width=50%><?php echo $ville?></td>
-                        <td width=15%><?php echo $dateEmbauche?></td>
+                        <td width=5%><?php echo $matricule ?></td>
+                        <td width=80%><?php echo $nom ?></td>
+                        <td width=95%><?php echo $adresse ?></td>
+                        <td width=10%><?php echo $cp ?></td>
+                        <td width=50%><?php echo $ville ?></td>
+                        <td width=15%><?php echo $dateEmbauche ?></td>
                         <!--<td width=15%><?//php echo $secteur?></td>-->
                     </tr>
                     <?php
