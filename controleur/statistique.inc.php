@@ -17,6 +17,7 @@
                 include("vue/v_visiteur.inc.php");
 				break;
             case 'statSecteur':
+                include("vue/statistique.inc.php");
                 $lesStatsSecteurs=Secteur::getAllNbVisiteurs();
                 include("vue/secteur.inc.php");
 				break;
