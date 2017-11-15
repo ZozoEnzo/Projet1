@@ -37,10 +37,17 @@
         }
         public static function getAllNbVisiteurs()
         {
-            $sql="SELECT S.libelleSecteur, COUNT(*) FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion GROUP BY S.libelleSecteur";
+            $sql="SELECT S.libelleSecteur, COUNT(*) AS nbVisiteurs FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion GROUP BY S.libelleSecteur";
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->execute();
-            $retour = $resultat->fetchAll(PDO::ATTR_DEFAULT_FETCH_MODE);
+            $inc = 0;
+            while($stat=$resultat->fetch(PDO::FETCH_ASSOC))
+            {
+                $retour[$inc][0] = $stat["libelleSecteur"];
+                $retour[$inc][1] = $stat["nbVisiteurs"];
+                $inc++;
+            }
+            return $retour;
         }
     }
 ?>
