@@ -1,55 +1,55 @@
 <?php
     class Visiteur {
-        private $matricule;
-        private $nom;
-        private $adresse;
-        private $cp;
-        private $ville;
+        private $matriculeVisiteur;
+        private $nomVisiteur;
+        private $adresseVisiteur;
+        private $cpVisiteur;
+        private $villeVisiteur;
         private $dateEmbauche;
 
         public function getMatricule() // VIS_MATRICULE
         {
-            return $this->matricule;
+            return $this->matriculeVisiteur;
         }
         public function setMatricule($value)
         {
-            $this->matricule=$value;
+            $this->matriculeVisiteur=$value;
         }
 
         public function getnom() // VIS_NOM
         {
-            return $this->nom;
+            return $this->nomVisiteur;
         }
         public function setnom($value)
         {
-            $this->nom=$value;
+            $this->nomVisiteur=$value;
         }
 
         public function getadresse() // VIS_ADRESSE
         {
-            return $this->adresse;
+            return $this->adresseVisiteur;
         }
         public function setadresse($value)
         {
-            $this->adresse=$value;
+            $this->adresseVisiteur=$value;
         }
 
         public function getcp() // VIS_CP
         {
-            return $this->cp;
+            return $this->cpVisiteur;
         }
         public function setcp($value)
         {
-            $this->cp=$value;
+            $this->cpVisiteur=$value;
         }
 
         public function getville() // VIS_VILLE
         {
-            return $this->ville;
+            return $this->villeVisiteur;
         }
         public function setville($value)
         {
-            $this->ville=$value;
+            $this->villeVisiteur=$value;
         }
 
         public function getdateEmbauche() // VIS_DATEEMBAUCHE

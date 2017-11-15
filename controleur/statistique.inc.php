@@ -9,6 +9,7 @@
         {
             case 'statRegion':
 				$lesRegions = Region::allRegion();
+				$Visit = Travailler::getVisiteurs();
                 include("vue/region.inc.php");
 				break;
             case 'delegues':

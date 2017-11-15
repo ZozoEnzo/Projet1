@@ -1,24 +1,24 @@
 <?php
     class Region {
-        private $code;
-        private $nom;
+        private $codeRegion;
+        private $nomRegion;
 		private $codeSecteur;
 
-        public function getCode()
+        public function getCodeRegion()
         {
-            return $this->code;
+            return $this->codeRegion;
         }
-        public function setCode($value)
+        public function setCodeRegion($value)
         {
-            $this->code=$value;
+            $this->codeRegion=$value;
         }
-        public function getNom()
+        public function getNomRegion()
         {
-            return $this->nom;
+            return $this->nomRegion;
         }
-        public function setNom($value)
+        public function setNomRegion($value)
         {
-            $this->nom=$value;
+            $this->nomRegion=$value;
         }
 		public function getCodeSec()
 		{
