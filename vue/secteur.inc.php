@@ -2,12 +2,12 @@
 <section>
 	<table><tr><th>Secteur</th><th>Nombre de visiteurs</th></tr>
 		<?php
-			for($inc=0, $inc<sizeof($lesStatsSecteurs), $inc++)
+			for($inc=0; $inc<sizeof($lesStatsSecteurs); $inc++)
             {
                 ?>
                     <tr>
-                        <td><?php $lesStatsSecteurs[$inc][0] ?></td>
-                        <td><?php $lesStatsSecteurs[$inc][1] ?></td>
+                        <td><?php echo $lesStatsSecteurs[$inc][0]; ?></td>
+                        <td><?php echo $lesStatsSecteurs[$inc][1]; ?></td>
                     </tr>
                 <?php
             }
