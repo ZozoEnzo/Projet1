@@ -4,8 +4,8 @@
 		<?php
 			foreach($lesRegions as $Region)
 			{
-				$id = $Region->getCode();
-				$nom = $Region->getNom();
+				$id = $Region->getCodeRegion();
+				$nom = $Region->getNomRegion();
 				?>
 				<tr>
 					<td><?php echo $nom; ?></td>
@@ -14,6 +14,17 @@
 					</td>
 				</tr>
 			<?php
+			}
+			foreach($Visit as $laVisit)
+			{
+				$i = 0;
+				$croleVisit = $laVisit->getRoleTravailler();
+				$regVisit = $laVisit->getCodeRegion();
+				foreach($regVisit as $code)
+				{
+					$i++;
+				}
+				var_dump($regVisit);
 			}
 		?>
 	</table>

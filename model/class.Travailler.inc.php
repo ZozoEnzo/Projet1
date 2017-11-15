@@ -37,6 +37,15 @@
         {
             $this->roleTravailler = $value;
         }
-
+		public static function getVisiteurs()
+		{
+			$req = "SELECT * from travailler";
+			$resultat = BD::getInstance()->query($req);
+			foreach($resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Travailler") as $item )
+            {
+                $visiteur[] = $item;
+            }
+			return $visiteur;
+		}
     }
 ?>
