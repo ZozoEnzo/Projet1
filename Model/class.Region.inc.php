@@ -2,7 +2,7 @@
     class Region {
         private $code;
         private $nom;
-		private $codeSection;
+		private $codeSecteur;
 
         public function getCode()
         {
@@ -22,13 +22,13 @@
         }
 		public function getCodeSec()
 		{
-			return $this->codeSection;
+			return $this->codeSecteur;
 		}
 		public function setCodeSec($value)
 		{
-			$this->codeSection = $value;
+			$this->codeSecteur = $value;
 		}
-		public function allRegion()
+		public static function allRegion()
 		{
 			$req = "SELECT * from region";
 			$resultat = BD::getInstance()->query($req);
