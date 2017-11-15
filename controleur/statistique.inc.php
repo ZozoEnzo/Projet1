@@ -7,7 +7,7 @@
     {
         switch($_GET["action"]) //suivant l'action à réaliser,
         {
-            case 'region':
+            case 'statRegion':
 				$lesRegions = Region::allRegion();
                 include("vue/regions.inc.php");
 				break;
@@ -15,7 +15,7 @@
 				$lesDeleg=Visiteur::getDelegues();
                 include("vue/v_visiteur.inc.php");
 				break;
-            case 'secteur':
+            case 'statSecteur':
 				break;
         }
     }
