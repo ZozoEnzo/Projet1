@@ -69,11 +69,13 @@
         }
         public static function getSecteur($matricule)
         {
-            $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=':matricule'";
+            $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=:matricule";
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':matricule', $matricule);
             $resultat->execute();
-            return $resultat;
+            $laLigne=$resultat->fetch(PDO::FETCH_ASSOC);
+            $retour=$laLigne["libelleSecteur"];
+            return $retour;
         }
     }
 ?>
