@@ -39,7 +39,7 @@
         }
 		public static function getVisiteurs()
 		{
-			$req = "SELECT * from travailler";
+			$req = "select codeRegion from travailler where roleTravailler = 'Visiteur'";
 			$resultat = BD::getInstance()->query($req);
 			foreach($resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Travailler") as $item )
             {
