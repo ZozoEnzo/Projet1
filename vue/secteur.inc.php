@@ -1,6 +1,6 @@
 <h2>Listes des secteurs</h2>
 <section>
-	<table><tr><th>Secteur</th><th>Nombre de visiteurs</th></tr>
+	<table class="listeLegere"><tr><th>Secteur</th><th>Nombre de visiteurs</th></tr>
 		<?php
 			for($inc=0; $inc<sizeof($lesStatsSecteurs); $inc++)
             {
