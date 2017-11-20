@@ -55,10 +55,10 @@
             break;
         case 'statSecteur': //si l'utilisateur veux les statistiques par secteur, on affiche tout sauf les statistique par secteur
             ?>
-                <a href="index.php?controleur=statistiques&action=statRegion" >Afficher les statistiques par région</a>
-                &mdash;
-                &mdash;
                 <a href="index.php?controleur=statistiques&action=delegues" >Afficher tous les délégués</a>
+                &mdash;
+                &mdash;
+                <a href="index.php?controleur=statistiques&action=statRegion" >Afficher les statistiques par région</a>
             <?php
             break;
     }
@@ -66,13 +66,13 @@
 
     //---INFORMATION---
     ?> <div class="centre"> <?php
-    switch($page)
+    switch($page) //suivant l'action à réaliser, on appelle la vue correspondante
     {
         case 'none':
             ?> <p class="corpsTexte">Veuillez selectionner la manière voulue pour visualiser les statistiques</p> <?php
             break;
         case 'statRegion':
-
+            //include("vue/");
             break;
         case 'delegues':
 

@@ -1,6 +1,8 @@
 <?php
     class Visiteur {
         private $matriculeVisiteur;
+        private $codeSecteur;
+        private $codeDep;
         private $nomVisiteur;
         private $adresseVisiteur;
         private $cpVisiteur;
@@ -14,6 +16,24 @@
         public function setMatricule($value)
         {
             $this->matriculeVisiteur=$value;
+        }
+
+        public function getCodeSecteur()
+        {
+            return $this->codeSecteur;
+        }
+        public function setSecteur($value)
+        {
+            $this->codeSecteur=$value;
+        }
+
+        public function getCodeDep()
+        {
+            return $this->codeDep;
+        }
+        public function setCodeDep()
+        {
+            $this->codeDep=$value;
         }
 
         public function getnom() // VIS_NOM
@@ -69,35 +89,23 @@
         }
         public static function getSecteur($matricule)
         {
-            $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=':matricule'";
+            $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=:matricule";
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':matricule', $matricule);
             $resultat->execute();
-            return $resultat;
+            $laLigne=$resultat->fetch(PDO::FETCH_ASSOC);
+            $retour=$laLigne["libelleSecteur"];
+            return $retour;
         }
-
-        public static function getAll()
+        public static function getDepartement($matricule)
         {
-            BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $req = BD::getInstance()->prepare("SELECT * FROM Secteur");
-            $req->execute();
-            return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
+            $sql="select nomDep from departement d, visiteur v where d.codeDep = v.codeDep and v.matriculeVisiteur=:matricule";
+            $resultat=BD::getInstance()->prepare($sql);
+            $resultat->bindParam(':matricule', $matricule);
+            $resultat->execute();
+            $laLigne=$resultat->fetch(PDO::FETCH_ASSOC);
+            $retour=$laLigne["nomDep"];
+            return $retour;
         }
-
-        public static function getAllVisiteurs($region)
-        {
-            $sql="  SELECT  V.matriculeVisiteur, V.codeSecteur, V.codeDep, V.nomVisiteur,
-                            V.adresseVisiteur V.cpVisiteur, V.villeVisiteur, V.dateEmbauche
-                    FROM    Region R, Visiteur V, Travailler T
-                    WHERE   R.codeRegion = T.codeRegion AND
-                            T.matriculeVisiteur = V.matriculeVisiteur AND
-                            R.codeRegion IN (SELECT codeRegion FROM Region WHERE nomRegion=':region')";
-            BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $req = BD::getInstance()->prepare($sql);
-            $resultat->bindParam(':region', $region);
-            $req->execute();
-            return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
-        }
-
     }
 ?>

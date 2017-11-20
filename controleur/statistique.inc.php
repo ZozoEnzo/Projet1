@@ -7,7 +7,6 @@
     {
         switch($_GET["action"]) //suivant l'action à réaliser,
         {
-            //STATISTIQUES PAR REGION
             case 'statRegion':
                 $_GET['page'] = 'statRegion';
                 include("vue/statistique.inc.php");
@@ -15,25 +14,12 @@
 				$Visit = Travailler::getVisiteurs();
                 include("vue/region.inc.php");
 				break;
-            case 'statRegionVisiteur':
-                $_GET['page'] = 'statRegion';
-                include("vue/statistique.inc.php");
-                if(isset($_GET['region']))
-                {
-                    $lesVisiteurs=Visiteur::getAllVisiteurs($_GET['region']);
-                    include("vue/visiteurRegion.inc.php");
-                }
-				break;
-
-            //AFFICHAGE DES DELEGUES
             case 'delegues':
                 $_GET['page'] = 'delegues';
                 include("vue/statistique.inc.php");
 				$lesDeleg=Visiteur::getDelegues();
                 include("vue/v_visiteur.inc.php");
 				break;
-
-            //STATISTIQUE PAR SECTEUR
             case 'statSecteur':
                 $_GET['page'] = 'statSecteur';
                 include("vue/statistique.inc.php");

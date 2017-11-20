@@ -1,34 +1,30 @@
-<div id="page">
-    <div id="content">
-        <div class="box">
-            <h2> Liste des délégués</h2>
-                <table><tr><th>Matricule</th><th>Nom</th><th>Adresse</th><th>Code postal</th><th>Ville</th><th>Date d'embauche</th><th>Secteur</th></tr>
+<h2> Liste des délégués</h2>
+                <table><tr><th>Matricule</th><th>Nom</th><th>Adresse</th><th>Ville</th><th>Code postal</th><th>Département</th><th>Date d'embauche</th><th>Secteur</th></tr>
                     <?php
                     foreach($lesDeleg as $Deleg) //parcours du tableau d'objets récupérés
                     {
                         $matricule=$Deleg->getMatricule();
                         $nom=$Deleg->getnom();
                         $adresse=$Deleg->getadresse();
-                        $cp=$Deleg->getcp();
                         $ville=$Deleg->getville();
+                        $cp=$Deleg->getcp();
+                        $departement=$Deleg->getDepartement($matricule);
                         $dateEmbauche=$Deleg->getdateEmbauche();
                         $secteur=$Deleg->getSecteur($matricule);
 
                     ?>
 
                     <tr>
-                        <td width=5%><?php echo $matricule ?></td>
-                        <td width=80%><?php echo $nom ?></td>
-                        <td width=95%><?php echo $adresse ?></td>
-                        <td width=10%><?php echo $cp ?></td>
-                        <td width=50%><?php echo $ville ?></td>
-                        <td width=15%><?php echo $dateEmbauche ?></td>
-                        <td width=15%><?php echo $secteur ?></td>
+                        <td><?php echo $matricule ?></td>
+                        <td><?php echo $nom ?></td>
+                        <td><?php echo $adresse ?></td>
+                        <td><?php echo $ville ?></td>
+                        <td><?php echo $cp ?></td>
+                        <td><?php echo $departement ?></td>
+                        <td><?php echo $dateEmbauche ?></td>
+                        <td><?php echo $secteur ?></td>
                     </tr>
                     <?php
                     }
                     ?>
             </table>
-        </div>
-    </div>
-</div>
