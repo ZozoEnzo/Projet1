@@ -40,7 +40,9 @@
                 }
             ?>
             <div id="pied" name="bas">
-
+                <form>
+                    <input type="button" value="Imprimer" onClick="window.print()">
+                </form>
             </div>
         </div>
     </body>
