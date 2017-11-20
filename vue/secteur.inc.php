@@ -1,4 +1,4 @@
-<h2>Listes des secteurs</h2>
+<br/><br/>
 <section>
 	<table class="listeLegere"><tr><th>Secteur</th><th>Nombre de visiteurs</th></tr>
 		<?php
@@ -14,3 +14,4 @@
 		?>
 	</table>
 </section>
+<br/><br/>

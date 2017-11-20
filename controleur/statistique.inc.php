@@ -8,14 +8,14 @@
         switch($_GET["action"]) //suivant l'action à réaliser,
         {
             case 'statRegion':
-                $_GET['page'] = 'statSecteur';
+                $_GET['page'] = 'statRegion';
                 include("vue/statistique.inc.php");
 				$lesRegions = Region::allRegion();
 				$Visit = Travailler::getVisiteurs();
                 include("vue/region.inc.php");
 				break;
             case 'delegues':
-                $_GET['page'] = 'statSecteur';
+                $_GET['page'] = 'delegues';
                 include("vue/statistique.inc.php");
 				$lesDeleg=Visiteur::getDelegues();
                 include("vue/v_visiteur.inc.php");
