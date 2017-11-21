@@ -37,15 +37,26 @@
         {
             $this->roleTravailler = $value;
         }
-		public static function getVisiteurs()
-		{
-			$req = "select codeRegion from travailler where roleTravailler = 'Visiteur'";
-			$resultat = BD::getInstance()->query($req);
-			foreach($resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Travailler") as $item )
-            {
-                $visiteur[] = $item;
-            }
-			return $visiteur;
+
+		public static function getVisiteurRegionById($id){
+			$nombre = 0;
+			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'visiteur' AND codeRegion = :codeRegion Group By codeRegion");
+			$req->execute(array('codeRegion' => $id));
+			while($r = $req->fetch()){
+				$nombre = $r['nombre'];
+			}
+			return $nombre;
 		}
+
+		public static function getDeleguerRegionById($id){
+			$nombre = 0;
+			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'Délégué' AND codeRegion = :codeRegion Group By codeRegion");
+			$req->execute(array('codeRegion' => $id));
+			while($r = $req->fetch()){
+				$nombre = $r['nombre'];
+			}
+			return $nombre;
+		}
+
     }
 ?>

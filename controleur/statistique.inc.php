@@ -12,7 +12,6 @@
                 $_GET['page'] = 'statRegion';
                 include("vue/statistique.inc.php");
 				$lesRegions = Region::allRegion();
-				$Visit = Travailler::getVisiteurs();
                 include("vue/region.inc.php");
 				break;
             case 'statRegionVisiteur':
