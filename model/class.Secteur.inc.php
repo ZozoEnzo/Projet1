@@ -1,13 +1,15 @@
 <?php
-	/*
-	*La classe Secteur avec l'ensemble des informations dans un
-	*secteur, qui sont : son code et son libelle 'nom'
+	/**
+	*	La classe Secteur avec l'ensemble des informations dans un
+	*	secteur, qui sont : son code et son libelle 'nom'
 	*/
     class Secteur {
         private $code;
         private $libelle;
 
-		//Les getters et setters de la classe secteur avec le code et le libelle
+		/**
+		*	Les getters et setters de la classe secteur avec le code et le libelle
+		*/
         public function getCode()
         {
             return $this->code;
@@ -24,7 +26,10 @@
         {
             $this->libelle=$value;
         }
-		//La fonction qui permet de récupérer tout les secteurs avec une requête sql puis de les renvoyers.
+		/**
+		*	La fonction qui permet de récupérer tout les secteurs
+		*	avec une requête sql puis de les renvoyers.
+		*/
         public static function getAll()
         {
             BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -32,7 +37,10 @@
             $req->execute();
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Secteur");
         }
-		//La fonction qui donne le nombre de visiteur par secteur, avec une requête sql préparer.
+		/**
+		*	La fonction qui donne le nombre de visiteur par secteur,
+		*	avec une requête sql préparer.
+		*/
         private function getNbVisiteurs()
         {
             $sql="SELECT COUNT(*) FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion AND S.codeSecteur = :code";//La requête sql préparer
@@ -42,7 +50,10 @@
             $nbVisiteurs=$resultat->fetch(PDO::FETCH_ASSOC);
             return $nbVisiteurs;
         }
-		//La fonction qui donne le nombre total de visiteur ordonné par secteur avec une requête sql.
+		/**
+		*	La fonction qui donne le nombre total de visiteur
+		*	ordonné par secteur avec une requête sql.
+		*/
         public static function getAllNbVisiteurs()
         {
             $sql="SELECT S.libelleSecteur, COUNT(*) AS nbVisiteurs FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion GROUP BY S.libelleSecteur"; //La requête sql qui sera envoyé à la base de donnée.

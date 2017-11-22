@@ -144,5 +144,19 @@
             $req->execute();
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
         }
+        public static function rechercheParDate($region, $dateDebut, $dateFin)
+        {
+            $sql= " SELECT *
+                    FROM Visiteur v, travailler t, region r
+                    WHERE v.matriculeVisiteur = t.matriculeVisiteur
+                    AND t.codeRegion = r.codeRegion
+                    AND r.nomRegion=:region
+                    AND dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
+            dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
+            $resultat=BD::getInstance()->prepare($sql);
+            $resultat->bindParam(':dateDebut', $dateDebut);
+            $resultat->bindParam(':dateFin', $dateFin);
+            $resultat->bindParam(':region', $region);
+        }
     }
 ?>
