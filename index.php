@@ -40,7 +40,7 @@
                 }
             ?>
             <div id="pied" name="bas">
-                <?php include("controleur/statistique.inc.php");  //page de statistique ?>
+                <?php include("vue/piedDePage.inc.html");  //page de statistique ?>
             </div>
         </div>
     </body>
