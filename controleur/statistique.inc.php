@@ -19,9 +19,9 @@
                 include("vue/statistique.inc.php");
                 if(isset($_GET['region']))
                 {
-                    $region = $_GET['region'];
-                    var_dump($region);
-                    $lesVisiteurs=Visiteur::getAllVisiteurs($region);
+                    $nomRegion = $_GET['region'];
+                    $region = Region::transformIntoRegion($nomRegion);
+                    $lesVisiteurs=Visiteur::getAllVisiteurs($region->getCodeRegion());
                     include("vue/visiteurRegion.inc.php");
                 }
 				break;

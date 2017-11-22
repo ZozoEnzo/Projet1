@@ -46,5 +46,15 @@
             }
 			return $region;
 		}
+        public static function transformIntoRegion($nomRegion)
+        {
+            $sql = "SELECT * from region WHERE nomRegion=:nom"; //La requête sql qui sera envoyé à la base de donnée pour récupérer les bonnes informations.
+            BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $req = BD::getInstance()->prepare($sql);
+            $resultat->bindParam(':nom', $nomRegion);
+			$resultat = BD::getInstance()->query($req);
+            $retour = $resultat->fetch(PDO::FETCH_ASSOC);
+			return $retour;
+        }
     }
 ?>
