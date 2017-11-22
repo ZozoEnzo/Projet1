@@ -1,7 +1,6 @@
-<h2> Liste des délégués</h2>
-                <table><tr><th>Matricule</th><th>Nom</th><th>Adresse</th><th>Ville</th><th>Code postal</th><th>Département</th><th>Date d'embauche</th><th>Secteur</th></tr>
-                    <?php
-                    foreach($lesDeleg as $Deleg) //parcours du tableau d'objets récupérés
+<table><tr><th>Matricule</th><th>Nom</th><th>Adresse</th><th>Ville</th><th>Code postal</th><th>Département</th><th>Date d'embauche</th><th>Secteur</th></tr>
+    <?php
+        foreach($lesDeleg as $Deleg) //parcours du tableau d'objets récupérés
                     {
                         $matricule=$Deleg->getMatricule();
                         $nom=$Deleg->getnom();
@@ -27,4 +26,4 @@
                     <?php
                     }
                     ?>
-            </table>
+</table>
