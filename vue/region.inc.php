@@ -14,7 +14,7 @@
 					<td><?php echo $Region->getNomRegion(); ?></td>
 					<td><?php echo Travailler::getVisiteurRegionById($Region->getCodeRegion()); ?></td>
 					<td><?php echo Travailler::getDeleguerRegionById($Region->getCodeRegion()); ?></td>
-					<td><a href="index.php?controleur=statistiques&action=statRegionVisiteur&region=<?php echo $Region->getNomRegion(); ?>">Afficher les visiteurs de la région</a></td>
+					<td><a href="index.php?controleur=statistiques&action=statRegionVisiteur&region=<?php echo $Region->getCodeRegion(); ?>">Afficher les visiteurs de la région</a></td>
 				</tr>
 			<?php
 				$i++;
