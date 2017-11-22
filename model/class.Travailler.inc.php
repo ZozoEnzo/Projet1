@@ -1,10 +1,17 @@
 <?php
+	/*
+	*La classe travailler qui contient le code de la région
+	*récupérer de la classe région, le jour le mois et l'année
+	*récupérer de la classe date, le matricule du visiteur
+	*récupéré de la classe visiteur et le role de chaque visiteur.
+	*/
     class Travailler {
         private $codeRegion;
         private $jjmmaa;
 		private $matriculeVisiteur;
         private $roleTravailler;
 
+		//Les getters et setters du codeRegion du jour/mois/année, du matricule, du rôle.
         public function getCodeRegion()
         {
             return $this->codeRegion;
@@ -38,6 +45,7 @@
             $this->roleTravailler = $value;
         }
 
+		//La fonction qui permet de trouver le nombre de visiteur en fonction d'une région avec comme paramêtre d'entrée l'id de la région
 		public static function getVisiteurRegionById($id){
 			$nombre = 0;
 			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'visiteur' AND codeRegion = :codeRegion Group By codeRegion");
@@ -48,6 +56,7 @@
 			return $nombre;
 		}
 
+		//La fonction qui permet de trouver le nombre de délégué en fonction d'une région avec comme paramêtre d'entrée l'id de la région
 		public static function getDeleguerRegionById($id){
 			$nombre = 0;
 			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'Délégué' AND codeRegion = :codeRegion Group By codeRegion");
