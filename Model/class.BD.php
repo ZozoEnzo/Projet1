@@ -1,5 +1,5 @@
 <?php
-    /*
+    /**
     *	Classe d'acces aux donnees Utilise les services de la classe PDO
     *	Les attributs sont tous statiques, les 4 premiers pour la connexion
     *	$maBD qui contiendra l'unique instance de la classe
@@ -27,7 +27,7 @@
         }
         /**
         *	Fonction statique qui cree l'unique instance de la classe
-        * Appel : $instanceMonPdo = MonPdo::getMonPdo();
+        * 	Appel : $instanceMonPdo = MonPdo::getMonPdo();
         *	@return l'unique objet de la classe MonPdo
         */
         public static function getInstance()
