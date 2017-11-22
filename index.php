@@ -40,9 +40,7 @@
                 }
             ?>
             <div id="pied" name="bas">
-                <form>
-                    <input type="button" value="Imprimer" onClick="window.print()">
-                </form>
+                <?php include("controleur/statistique.inc.php");  //page de statistique ?>
             </div>
         </div>
     </body>
