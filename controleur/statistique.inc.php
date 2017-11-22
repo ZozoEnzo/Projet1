@@ -17,6 +17,7 @@
             case 'statRegionVisiteur':
                 $_GET['page'] = 'statRegion';
                 include("vue/statistique.inc.php");
+                include("vue/v_rechercheVisiteur.inc.php");
                 if(isset($_GET['region']))
                 {
                     //$nomRegion = $_GET['region'];
