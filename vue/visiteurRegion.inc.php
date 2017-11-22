@@ -1,5 +1,5 @@
 <table>
-    <tr> <!-- COLONNES -->
+    <tr> <!-- Affichage de option d'un visiteur en foncion du région choisit précédemment -->
         <th>Matricule</th>
         <th>Nom</th>
         <th>Adresse</th>
@@ -18,7 +18,8 @@
         $ville=$visiteur->getville();
         $dateEmbauche=$visiteur->getdateEmbauche();
         $secteur=$visiteur->getSecteur($matricule);    ?>
-    <tr>
+
+    <tr><!-- Affichage du tableau avec les données récupéré précédemment en php -->
         <td><?php echo $matricule ?></td>
         <td><?php echo $nom ?></td>
         <td><?php echo $adresse ?></td>

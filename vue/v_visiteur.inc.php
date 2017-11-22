@@ -1,3 +1,4 @@
+<!-- Affichage de option d'un délégué en foncion du région choisit précédemment -->
 <table><tr><th>Matricule</th><th>Nom</th><th>Adresse</th><th>Ville</th><th>Code postal</th><th>Département</th><th>Date d'embauche</th><th>Secteur</th></tr>
     <?php
         foreach($lesDeleg as $Deleg) //parcours du tableau d'objets récupérés
@@ -13,7 +14,7 @@
 
                     ?>
 
-                    <tr>
+                    <tr> <!-- Affichage du tableau avec les données récupéré précédemment en php -->
                         <td><?php echo $matricule ?></td>
                         <td><?php echo $nom ?></td>
                         <td><?php echo $adresse ?></td>
