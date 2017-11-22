@@ -40,9 +40,9 @@
                     ?> <h1 class"centre">Bienvenu sur le projet GSB</h1> <?php
                 }
             ?>
-            <div id="pied" name="bas">
-                <?php include("vue/piedDePage.inc.html");  //page de statistique ?>
-            </div>
+        </div>
+        <div id="pied" name="bas">
+            <?php include("vue/piedDePage.inc.html");  //page de statistique ?>
         </div>
     </body>
 </html>
