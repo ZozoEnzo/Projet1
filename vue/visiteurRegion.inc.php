@@ -17,7 +17,7 @@
         $cp=$visiteur->getcp();
         $ville=$visiteur->getville();
         $dateEmbauche=$visiteur->getdateEmbauche();
-        $secteur=$Deleg->getSecteur($matricule);    ?>
+        $secteur=$visiteur->getSecteur($matricule);    ?>
     <tr>
         <td><?php echo $matricule ?></td>
         <td><?php echo $nom ?></td>
