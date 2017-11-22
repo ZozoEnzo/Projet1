@@ -20,9 +20,7 @@
                 include("vue/v_rechercheVisiteur.inc.php");
                 if(isset($_GET['region']))
                 {
-                    //$nomRegion = $_GET['region'];
-                    //$region = Region::transformIntoRegion($nomRegion);
-                    $lesVisiteurs=Visiteur::getAllVisiteurs(/*$region->getCodeRegion()*/$_GET['region']);
+                    $lesVisiteurs=Visiteur::getAllVisiteurs($_GET['region']);
                     include("vue/visiteurRegion.inc.php");
                 }
 				break;
