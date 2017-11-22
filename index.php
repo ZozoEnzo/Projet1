@@ -37,7 +37,7 @@
                     }
                 }
                 else{
-                    ?> <h1 class"centre">Bienvenu sur le projet GSB</h1> <?php
+                    ?> <h1 class"centre">Bienvenue sur le projet GSB</h1> <?php
                 }
             ?>
         </div>
