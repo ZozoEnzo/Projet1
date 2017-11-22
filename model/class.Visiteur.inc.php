@@ -1,12 +1,12 @@
 <?php
-	/**
-	*	La classe visiteur, une classe qui récupère
-	*	toutes les données d'un visiteur avec le matricule
-	*	du visiteur, le codeSecteur dans lequel se trouve
-	*	le secteur du visiteur, il est récupérer de la
-	*	classe Secteur, il y a le codeDep qui est récupérer
-	*	de la classe département, le nom du visiteur, son
-	*	adresse, son code postal, sa ville et sa date d'embauche.
+	/*
+	*La classe visiteur, une classe qui récupère
+	*toutes les données d'un visiteur avec le matricule
+	*du visiteur, le codeSecteur dans lequel se trouve
+	*le secteur du visiteur, il est récupérer de la
+	*classe Secteur, il y a le codeDep qui est récupérer
+	*de la classe département, le nom du visiteur, son
+	*adresse, son code postal, sa ville et sa date d'embauche.
 	*/
     class Visiteur {
         private $matriculeVisiteur;
@@ -18,12 +18,7 @@
         private $villeVisiteur;
         private $dateEmbauche;
 
-		/**
-		*	Les getters et setters du matriculeVisiteur,
-		*	du codeSecteur, du codeDep, du nomVisiteur,
-		*	de //l'adresseVisiteur, du cpVisiteur,
-		*	de la villeVisiteur et de la dateEmbauche.
-		*/
+		//Les getters et setters du matriculeVisiteur, du codeSecteur, du codeDep, du nomVisiteur, de //l'adresseVisiteur, du cpVisiteur, de la villeVisiteur et de la dateEmbauche.
         public function getMatricule() // VIS_MATRICULE
         {
             return $this->matriculeVisiteur;
@@ -95,10 +90,7 @@
         {
             $this->dateEmbauche=$value;
         }
-		/**
-		*	affiche la liste de l'ensemble de
-		*	visiteur qui on pour role délégué
-		*/
+		//affiche la liste de l'ensemble de visiteur qui on pour role délégué.
         public static function getDelegues()
         {
             $sql="select * from visiteur v, travailler t where v.matriculeVisiteur = t.matriculeVisiteur and t.roleTravailler = 'Délégué'";
@@ -106,9 +98,7 @@
             $lesDeleg=$resultat->fetchAll (PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Visiteur');
             return $lesDeleg;
         }
-		/**
-		*	affiche le secteur d'un visiteur depuis son matricule
-		*/
+		//affiche le secteur d'un visiteur depuis son matricule
         public static function getSecteur($matricule)
         {
             $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=:matricule";
@@ -119,9 +109,7 @@
             $retour=$laLigne["libelleSecteur"];
             return $retour;
         }
-		/**
-		*	affiche le département d'un visiteur depuis son matricule
-		*/
+		//affiche le département d'un visiteur depuis son matricule
         public static function getDepartement($matricule)
         {
             $sql="select nomDep from departement d, visiteur v where d.codeDep = v.codeDep and v.matriculeVisiteur=:matricule"; //requête sql pour l'affichage
@@ -132,9 +120,7 @@
             $retour=$laLigne["nomDep"];
             return $retour;
         }
-		/**
-		*	Affiche tout l'ensemble des secteurs
-		*/
+		//Affiche tout l'ensemble des secteurs
         public static function getAll()
         {
             BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -142,10 +128,7 @@
             $req->execute();
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
         }
-		/**
-		*	affiche la liste de tout les visiteurs
-		*	en fonction d'une région
-		*/
+		//affiche la liste de tout les visiteurs en fonction d'une région
         public static function getAllVisiteurs($region)
         {
             $test=$region;
@@ -160,6 +143,20 @@
             $req->bindParam(':region', $test); //donner le paramêtre $region a la region de la requête
             $req->execute();
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
+        }
+        public static function rechercheParDate($region, $dateDebut, $dateFin)
+        {
+            $sql= " SELECT *
+                    FROM Visiteur v, travailler t, region r
+                    WHERE v.matriculeVisiteur = t.matriculeVisiteur
+                    AND t.codeRegion = r.codeRegion
+                    AND r.nomRegion=:region
+                    AND dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
+            dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
+            $resultat=BD::getInstance()->prepare($sql);
+            $resultat->bindParam(':dateDebut', $dateDebut);
+            $resultat->bindParam(':dateFin', $dateFin);
+            $resultat->bindParam(':region', $region);
         }
     }
 ?>

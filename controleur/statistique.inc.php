@@ -20,7 +20,14 @@
                 include("vue/v_rechercheVisiteur.inc.php");
                 if(isset($_GET['region']))
                 {
-                    $lesVisiteurs=Visiteur::getAllVisiteurs($_GET['region']);
+                    if(isset($_POST['dateDebut']) && isset($_POST['dateFin']))
+                    {
+                        //$lesVisiteurs=Visiteur::getrechercheParDate($_GET['region'], $_POST['dateDebut'], $_POST['dateFin']);
+                    }
+                    else
+                    {
+                        $lesVisiteurs=Visiteur::getAllVisiteurs($_GET['region']);
+                    }
                     include("vue/visiteurRegion.inc.php");
                 }
 				break;
