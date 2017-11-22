@@ -29,14 +29,15 @@
         </div>
         <div id="contenu" name="droite">
             <?php
-                if(isset($_GET["controleur"]))
-                {
-                    switch($_GET["controleur"]) //suivant le contrôleur
-                    {
+                if(isset($_GET["controleur"])){
+                    switch($_GET["controleur"]){ //suivant le contrôleur
                         case 'statistiques':
                             include("controleur/statistique.inc.php");  //page de statistique
                             break;
                     }
+                }
+                else{
+                    ?> <h1 class"centre">Bienvenu sur le projet GSB</h1> <?php
                 }
             ?>
             <div id="pied" name="bas">
