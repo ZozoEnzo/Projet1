@@ -136,16 +136,20 @@
 		*	$dateFin type date ; date de fin, avec la date d'embauche
 		*/
         public static function rechercheParDate($region, $dateDebut, $dateFin) {
-            $sql= " SELECT *
-                    FROM Visiteur v, travailler t, region r
-                    WHERE v.matriculeVisiteur = t.matriculeVisiteur
+            $sql= " SELECT v.matriculeVisiteur, v.nomVisiteur, v.adresseVisiteur, v.cpVisiteur, v.villeVisiteur, v.dateEmbauche, s.libelleSecteur
+                    FROM Visiteur v, travailler t, region r, secteur s
+                    WHERE s.codeSecteur = v.codeSecteur
+                    AND v.matriculeVisiteur = t.matriculeVisiteur
                     AND t.codeRegion = r.codeRegion
                     AND r.nomRegion=:region
                     AND dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
-            $resultat=BD::getInstance()->prepare($sql);
-            $resultat->bindParam(':dateDebut', $dateDebut);
-            $resultat->bindParam(':dateFin', $dateFin);
-            $resultat->bindParam(':region', $region);
+            BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $req = BD::getInstance()->prepare($sql);
+            $req->bindParam(':dateDebut', $dateDebut);
+            $req->bindParam(':dateFin', $dateFin);
+            $req->bindParam(':region', $region);
+            $req->execute();
+            return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Visiteur");
         }
     }
 ?>

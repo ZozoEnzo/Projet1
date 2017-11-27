@@ -18,6 +18,8 @@
                 $_GET['page'] = 'statRegion';
                 include("vue/statistique.inc.php");
                 include("vue/v_rechercheVisiteur.inc.php");
+                var_dump($_POST['dateDebut']);
+                var_dump($_POST['dateFin']);
                 if(isset($_GET['region']))
                 {
                     if(isset($_POST['dateDebut']) && isset($_POST['dateFin']))
