@@ -14,7 +14,7 @@
 			<td><?php echo Travailler::getDeleguerRegionById($Region->getCodeRegion()); ?></td> <!--Affichage du nombre de délégué par région-->
 			<td>
 			    <a href="index.php?controleur=statistiques&action=statRegionVisiteur&region=<?php echo $Region->getCodeRegion(); ?>">
-			        Afficher les visiteurs de la région
+			        Afficher les visiteurs et délégués de la région
 		        </a>
 			</td> <!--Le lien se trouvant dans l'action pour afficher les visiteurs d'une région-->
 		</tr>
