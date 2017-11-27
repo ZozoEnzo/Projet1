@@ -37,7 +37,11 @@
 		*	avec une requête sql préparer.
 		*/
         private function getNbVisiteurs() {
-            $sql="SELECT COUNT(*) FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion AND S.codeSecteur = :code";//La requête sql préparer
+            $sql="  SELECT  COUNT(*)
+                    FROM    Secteur S, Region R, Travailler T
+                    WHERE   S.CodeSecteur = R.CodeSecteur AND
+                            R.CodeRegion = T.CodeRegion AND
+                            S.codeSecteur = :code";//La requête sql préparer
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':code', $code); //On donne au code la donnée du code qui lui correspond bien.
             $resultat->execute();
@@ -49,7 +53,11 @@
 		*	ordonné par secteur avec une requête sql.
 		*/
         public static function getAllNbVisiteurs() {
-            $sql="SELECT S.libelleSecteur, COUNT(*) AS nbVisiteurs FROM Secteur S, Region R, Travailler T WHERE S.CodeSecteur = R.CodeSecteur AND R.CodeRegion = T.CodeRegion GROUP BY S.libelleSecteur"; //La requête sql qui sera envoyé à la base de donnée.
+            $sql="  SELECT   S.libelleSecteur, COUNT(*) AS nbVisiteurs
+                    FROM     Secteur S, Region R, Travailler T
+                    WHERE    S.CodeSecteur = R.CodeSecteur AND
+                             R.CodeRegion = T.CodeRegion
+                    GROUP BY S.libelleSecteur"; //La requête sql qui sera envoyé à la base de donnée.
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->execute();
             $inc = 0;

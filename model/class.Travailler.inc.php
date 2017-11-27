@@ -47,7 +47,11 @@
 		*/
 		public static function getVisiteurRegionById($id){
 			$nombre = 0;
-			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'visiteur' AND codeRegion = :codeRegion Group By codeRegion");
+            $sql="  Select  count(matriculeVisiteur) as nombre
+                    FROM    travailler
+                    Where   roleTravailler = 'visiteur' AND
+                            codeRegion = :codeRegion Group By codeRegion";
+			$req = BD::getInstance()->prepare($sql);
 			$req->execute(array('codeRegion' => $id));
 			while($r = $req->fetch()){
 				$nombre = $r['nombre'];
@@ -62,7 +66,12 @@
 		*/
 		public static function getDeleguerRegionById($id){
 			$nombre = 0;
-			$req = BD::getInstance()->prepare("Select count(matriculeVisiteur) as nombre FROM travailler Where roleTravailler = 'Délégué' AND codeRegion = :codeRegion Group By codeRegion");
+            $sql="  Select   count(matriculeVisiteur) as nombre
+                    FROM     travailler
+                    Where    roleTravailler = 'Délégué' AND
+                             codeRegion = :codeRegion
+                    Group By codeRegion";
+			$req = BD::getInstance()->prepare($sql);
 			$req->execute(array('codeRegion' => $id));
 			while($r = $req->fetch()){
 				$nombre = $r['nombre'];
