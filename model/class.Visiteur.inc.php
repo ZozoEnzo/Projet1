@@ -76,22 +76,16 @@
 		*	affiche la liste de l'ensemble de visiteur qui on pour role délégué.
 		*/
         public static function getDelegues() {
-            $sql="  select  *
-                    from    visiteur v, travailler t
-                    where   v.matriculeVisiteur = t.matriculeVisiteur and
-                            t.roleTravailler = 'Délégué'";
+            $sql="select * from visiteur v, travailler t where v.matriculeVisiteur = t.matriculeVisiteur and t.roleTravailler = 'Délégué'";
             $resultat=BD::getInstance()->query($sql);
-            $lesDeleg=$resultat->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Visiteur');
+            $lesDeleg=$resultat->fetchAll (PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Visiteur');
             return $lesDeleg;
         }
 		/**
 		*	affiche le secteur d'un visiteur depuis son matricule
 		*/
         public static function getSecteur($matricule) {
-            $sql="  select  libelleSecteur
-                    from    Secteur s, Visiteur v
-                    where   s.codeSecteur = v.codeSecteur and
-                            v.matriculeVisiteur=:matricule";
+            $sql="select libelleSecteur from Secteur s, Visiteur v where s.codeSecteur = v.codeSecteur and v.matriculeVisiteur=:matricule";
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':matricule', $matricule);
             $resultat->execute();
@@ -103,10 +97,7 @@
 		*	affiche le département d'un visiteur depuis son matricule
 		*/
         public static function getDepartement($matricule) {
-            $sql="  select  nomDep
-                    from    departement d, visiteur v
-                    where   d.codeDep = v.codeDep and
-                            v.matriculeVisiteur=:matricule"; //requête sql pour l'affichage
+            $sql="select nomDep from departement d, visiteur v where d.codeDep = v.codeDep and v.matriculeVisiteur=:matricule"; //requête sql pour l'affichage
             $resultat=BD::getInstance()->prepare($sql);
             $resultat->bindParam(':matricule', $matricule); //donner le paramêtre $matricule au matricule de la requête
             $resultat->execute();
@@ -126,9 +117,8 @@
 		*/
         public static function getAllVisiteurs($region) {
             $test=$region;
-            $sql="  SELECT  V.matriculeVisiteur, V.codeSecteur, V.codeDep,
-                            V.nomVisiteur, V.adresseVisiteur, V.cpVisiteur,
-                            V.villeVisiteur, V.dateEmbauche
+            $sql="  SELECT  V.matriculeVisiteur, V.codeSecteur, V.codeDep, V.nomVisiteur,
+                            V.adresseVisiteur, V.cpVisiteur, V.villeVisiteur, V.dateEmbauche
                     FROM    Region R, Visiteur V, Travailler T
                     WHERE   R.codeRegion = T.codeRegion AND
                             T.matriculeVisiteur = V.matriculeVisiteur AND
@@ -140,7 +130,7 @@
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
         }
 		/**
-		*	affiche la liste de tous les visiteurs en fonction d'une région d'une date de début et d'une date de fin
+		*	affiche la liste de tous les visiteurs d'une région en fonction d'une date de début et d'une date de fin
 		*/
         public static function rechercheParDate($region, $dateDebut, $dateFin) {
             $sql= " SELECT *

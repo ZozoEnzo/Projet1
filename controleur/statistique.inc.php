@@ -22,7 +22,7 @@
                 {
                     if(isset($_POST['dateDebut']) && isset($_POST['dateFin']))
                     {
-                        //$lesVisiteurs=Visiteur::getrechercheParDate($_GET['region'], $_POST['dateDebut'], $_POST['dateFin']);
+                        $lesVisiteurs=Visiteur::getrechercheParDate($_GET['region'], $_POST['dateDebut'], $_POST['dateFin']);
                     }
                     else
                     {
