@@ -44,6 +44,7 @@
 		*	La fonction qui permet de trouver le nombre
 		*	de visiteur en fonction d'une région avec
 		*	comme paramêtre d'entrée l'id de la région
+		* 	$id type int; le code de la région pour la requête
 		*/
 		public static function getVisiteurRegionById($id){
 			$nombre = 0;
@@ -63,6 +64,7 @@
 		*	La fonction qui permet de trouver le nombre
 		*	de délégué en fonction d'une région avec comme
 		*	paramêtre d'entrée l'id de la région
+		*	$id type int; le code de la région pour la requête
 		*/
 		public static function getDeleguerRegionById($id){
 			$nombre = 0;
