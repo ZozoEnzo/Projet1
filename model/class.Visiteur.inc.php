@@ -130,7 +130,10 @@
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
         }
 		/**
-		*	affiche la liste de tous les visiteurs d'une région en fonction d'une date de début et d'une date de fin
+		*	affiche la liste de tous les visiteurs en fonction d'une région d'une date de début et d'une date de fin
+		*	$region type region de la classe région; le nom de la région
+		*	$dateDebut type date ; date de début, avec la date d'embauche
+		*	$dateFin type date ; date de fin, avec la date d'embauche
 		*/
         public static function rechercheParDate($region, $dateDebut, $dateFin) {
             $sql= " SELECT *
