@@ -15,36 +15,28 @@
 		*	Les getters et setters du codeRegion
 		*	du jour/mois/année, du matricule, du rôle.
 		*/
-        public function getCodeRegion()
-        {
+        public function getCodeRegion() {
             return $this->codeRegion;
         }
-        public function setCodeRegion($value)
-        {
+        public function setCodeRegion($value) {
             $this->codeRegion=$value;
         }
-        public function getJjmmaa()
-        {
+        public function getJjmmaa() {
             return $this->jjmmaa;
         }
-        public function setJjmmaa($value)
-        {
+        public function setJjmmaa($value) {
             $this->jjmmaa=$value;
         }
-		public function getMatriculeVisiteur()
-		{
+		public function getMatriculeVisiteur() {
 			return $this->matriculeVisiteur;
 		}
-		public function setMatriculeVisiteur($value)
-		{
+		public function setMatriculeVisiteur($value) {
 			$this->matriculeVisiteur = $value;
 		}
-        public function getRoleTravailler()
-        {
+        public function getRoleTravailler() {
             return $this->roleTravailler;
         }
-        public function setRoleTravailler()
-        {
+        public function setRoleTravailler() {
             $this->roleTravailler = $value;
         }
 

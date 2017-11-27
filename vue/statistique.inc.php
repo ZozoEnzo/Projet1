@@ -5,8 +5,7 @@
         $page=$_GET["page"];
 
     //---TITRE---
-    switch($page) //suivant l'action à réaliser, on affiche un titre différant
-    {
+    switch($page) { //suivant l'action à réaliser, on affiche un titre différant
         case 'none':
             ?> <h1 class="centre"> Gestion des statistiques </h1> <?php
             break;
@@ -23,8 +22,7 @@
 
     //---LIENS-MENU---
     ?> <div class="centre"> <?php
-    switch($page) //suivant l'action à réaliser, on affiche pas tous les liens
-    {
+    switch($page) { //suivant l'action à réaliser, on affiche pas tous les liens
         case 'none': //si l'utilisateur n'a pas encore choisi d'action particulière, on affiche tout
             ?>
 
@@ -66,8 +64,7 @@
 
     //---INFORMATION---
     ?> <div class="centre"> <?php
-    switch($page)
-    {
+    switch($page){
         case 'none':
             ?> <p class="corpsTexte">Veuillez selectionner la manière voulue pour visualiser les statistiques</p> <?php
             break;

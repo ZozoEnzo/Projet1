@@ -12,28 +12,22 @@
 		*	Les getters et setters de la classe département avec le code,
 		*	le nom,  et le chef.
 		*/
-        public function getCode()
-        {
+        public function getCode() {
             return $this->code;
         }
-        public function setCode($value)
-        {
+        public function setCode($value) {
             $this->code=$value;
         }
-        public function getnom()
-        {
+        public function getnom() {
             return $this->nom;
         }
-        public function setnom($value)
-        {
+        public function setnom($value) {
             $this->nom=$value;
         }
-        public function getchefVente()
-        {
+        public function getchefVente() {
             return $this->chefVente;
         }
-        public function setchefVente($value)
-        {
+        public function setchefVente($value) {
             $this->chefVente=$value;
         }
     }
