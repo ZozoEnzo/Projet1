@@ -10,6 +10,13 @@
         private $mois;
         private $annee;
 
+
+        function __construct($j, $m, $a) {
+            $this->jour = $j;
+            $this->mois = $m;
+            $this->annee = $a;
+        }
+
 		/**
 		*	Les getters et setters de la classe date avec le jour le mois, et l'anné.
 		*/
