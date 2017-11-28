@@ -137,11 +137,10 @@
 		*/
         public static function rechercheParDate($region, $dateDebut, $dateFin) {
             $sql= " SELECT v.matriculeVisiteur, v.nomVisiteur, v.adresseVisiteur, v.cpVisiteur, v.villeVisiteur, v.dateEmbauche, s.libelleSecteur
-                    FROM Visiteur v, travailler t, region r, secteur s
+                    FROM Visiteur v, travailler t, secteur s
                     WHERE s.codeSecteur = v.codeSecteur
                     AND v.matriculeVisiteur = t.matriculeVisiteur
-                    AND t.codeRegion = r.codeRegion
-                    AND r.nomRegion=:region
+                    AND t.codeRegion = ':region'
                     AND dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
             BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $req = BD::getInstance()->prepare($sql);
