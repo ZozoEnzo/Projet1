@@ -39,8 +39,8 @@
             $this->annee=$value;
         }
 
-        public function afficher() {
-            return $this->annee."/".$this->mois."/".$this->jour;
+        public static function afficher($jour, $mois, $annee) {
+            return $annee."/".$mois."/".$jour;
         }
     }
 ?>

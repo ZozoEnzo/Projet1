@@ -127,6 +127,7 @@
             $req = BD::getInstance()->prepare($sql);
             $req->bindParam(':region', $test); //donner le paramêtre $region a la region de la requête
             $req->execute();
+            var_dump($req);
             return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,"Visiteur");
         }
 		/**
@@ -141,14 +142,15 @@
                     WHERE s.codeSecteur = v.codeSecteur
                     AND v.matriculeVisiteur = t.matriculeVisiteur
                     AND t.codeRegion = ':region'
-                    AND dateEmbauche BETWEEN ':dateDebut' and ':dateFin'";
+                    ";
             BD::getInstance()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $req = BD::getInstance()->prepare($sql);
             $req->bindParam(':dateDebut', $dateDebut);
             $req->bindParam(':dateFin', $dateFin);
             $req->bindParam(':region', $region);
             $req->execute();
-            return $req->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, "Visiteur");
+            //return $req;
+            return $req->fetchAll(PDO::FETCH_CLASS, "Visiteur");
         }
     }
 ?>

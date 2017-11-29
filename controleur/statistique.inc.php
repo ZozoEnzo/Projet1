@@ -22,7 +22,18 @@
                 {
                     if(isset($_POST['dateDebut']) && isset($_POST['dateFin']))
                     {
-                        $lesVisiteurs=Visiteur::rechercheParDate($_GET['region'], $_POST['dateDebut'], $_POST['dateFin']);
+                        $jourDebut=substr($_POST['dateDebut'], -2, 2);
+                        $moisDebut=substr($_POST['dateDebut'], -5, 2);
+                        $anneeDebut=substr($_POST['dateDebut'], -10, 4);
+                        //$dateDebut=new Date($jourDebut, $moisDebut, $anneeDebut);
+                        $dateDebut=Date::afficher($jourDebut, $moisDebut, $anneeDebut);
+                        $jourFin=substr($_POST['dateFin'], -2, 2);
+                        $moisFin=substr($_POST['dateFin'], -5, 2);
+                        $anneeFin=substr($_POST['dateFin'], -10, 4);
+                        //$dateFin=new Date($jourFin, $moisFin, $anneeFin);
+                        $dateFin=Date::afficher($jourFin, $moisFin, $anneeFin);
+                        $lesVisiteurs=Visiteur::rechercheParDate($_GET['region'], $dateDebut, $dateFin);
+                        var_dump($lesVisiteurs);
                     }
                     else
                     {
